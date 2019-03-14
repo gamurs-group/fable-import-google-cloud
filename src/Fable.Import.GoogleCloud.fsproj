@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Version>0.0.0</Version>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Summary>Fable bindings for the @google-cloud/storage npm package.</Summary>
+        <Description>Provides fable bindings for the google-cloud/storage npm package.</Description>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <Authors>Grant Neale</Authors>
+        <PackageLicenseUrl>https://github.com/gamurs-group/fable-import-google-cloud/blob/master/LICENSE.md</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/gamurs-group/fable-import-google-cloud</PackageProjectUrl>
+        <PackageTags>F#, fsharp, fable2, fable-bindings, google-cloud, google-cloud-storage</PackageTags>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Duplexify\Duplexify.fs" />
+        <Compile Include="Caseless\Caseless.fs" />
+        <Compile Include="ToughCookie\ToughCookie.fs" />
+        <Compile Include="FormData\FormData.fs" />
+        <Compile Include="Request\Request.fs" />
+        <Compile Include="GoogleCloud.Common\CommonUtil.fs" />
+        <Compile Include="GoogleCloud.Common\Service.fs" />
+        <Compile Include="GoogleCloud.Common\ServiceObject.fs" />
+        <Compile Include="GoogleCloud.Common\Operation.fs" />
+        <Compile Include="GoogleCloud.Storage\Util.fs" />
+        <Compile Include="GoogleCloud.Storage\Acl.fs" />
+        <Compile Include="GoogleCloud.Storage\GoogleCloud.Storage.fs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="*.fsproj; *.fs" PackagePath="fable\" />
+    </ItemGroup>
+    <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>
