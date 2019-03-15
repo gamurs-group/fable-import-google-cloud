@@ -2,6 +2,8 @@ source https://www.nuget.org/api/v2
 content:none
 
 nuget Fable.Core
+nuget Fable.Import.Node
+nuget Fable.Import.Note
 
 clitool dotnet-fable
 
