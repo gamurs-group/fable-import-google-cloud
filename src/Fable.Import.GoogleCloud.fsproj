@@ -28,7 +28,7 @@
         <Compile Include="GoogleCloud.Storage\GoogleCloud.Storage.fs" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="*.fsproj; *.fs" PackagePath="fable\" />
+        <Content Include="*.fsproj; **\*.fs" PackagePath="fable\" />
     </ItemGroup>
     <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
