@@ -445,7 +445,7 @@ type [<AllowNullLiteral>] GetSignedUrlConfig =
     abstract responseType: string option with get, set
 
 type GetSignedUrlResponse =
-    string
+    string array
 
 type [<AllowNullLiteral>] GetSignedUrlCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?url: string -> unit
@@ -526,7 +526,7 @@ type [<AllowNullLiteral>] CreateResumableUploadOptions =
     abstract userProject: string option with get, set
 
 type CreateResumableUploadResponse =
-    string
+    string array
 
 type [<AllowNullLiteral>] CreateResumableUploadCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?uri: string -> unit
