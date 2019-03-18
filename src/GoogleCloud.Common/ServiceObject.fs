@@ -85,7 +85,7 @@ type [<AllowNullLiteral>] ResponseCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?apiResponse: R.Response -> unit
 
 type SetMetadataResponse =
-    Metadata
+    Tuple1<Metadata>
 
 type SetMetadataOptions =
     obj
@@ -118,11 +118,11 @@ type [<AllowNullLiteral>] ServiceObject<'T> =
     abstract create: options: CreateOptions * callback: CreateCallback<'T> -> unit
     abstract create: callback: CreateCallback<'T> -> unit
     /// Delete the object.
-    abstract delete: ?options: DeleteOptions -> Promise<R.Response>
+    abstract delete: ?options: DeleteOptions -> Promise<Tuple1<R.Response>>
     abstract delete: options: DeleteOptions * callback: DeleteCallback -> unit
     abstract delete: callback: DeleteCallback -> unit
     /// Check if the object exists.
-    abstract exists: ?options: ExistsOptions -> Promise<bool>
+    abstract exists: ?options: ExistsOptions -> Promise<Tuple1<bool>>
     abstract exists: options: ExistsOptions * callback: ExistsCallback -> unit
     abstract exists: callback: ExistsCallback -> unit
     /// <summary>Get the object if it exists. Optionally have the object created if an

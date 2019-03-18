@@ -49,7 +49,7 @@ type [<AllowNullLiteral>] AddAclCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?acl: AccessControlObject * ?apiResponse: R.Response -> unit
 
 type RemoveAclResponse =
-    R.Response
+    Tuple1<R.Response>
 
 type [<AllowNullLiteral>] RemoveAclCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?apiResponse: R.Response -> unit
