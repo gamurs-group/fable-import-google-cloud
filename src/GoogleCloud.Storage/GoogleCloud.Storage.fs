@@ -126,7 +126,7 @@ type [<AllowNullLiteral>] DeleteBucketOptions =
     abstract userProject: string option with get, set
 
 type DeleteBucketResponse =
-    Request.Response
+    Tuple1<Request.Response>
 
 type [<AllowNullLiteral>] DeleteBucketCallback =
     inherit DeleteCallback
@@ -146,13 +146,13 @@ type [<AllowNullLiteral>] DeleteLabelsCallback =
     inherit SetLabelsCallback
 
 type DisableRequesterPaysResponse =
-    Request.Response
+    Tuple1<Request.Response>
 
 type [<AllowNullLiteral>] DisableRequesterPaysCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?apiResponse: obj -> unit
 
 type EnableRequesterPaysResponse =
-    Request.Response
+    Tuple1<Request.Response>
 
 type [<AllowNullLiteral>] EnableRequesterPaysCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?apiResponse: Request.Response -> unit
@@ -162,7 +162,7 @@ type [<AllowNullLiteral>] BucketExistsOptions =
     abstract userProject: string option with get, set
 
 type BucketExistsResponse =
-    bool
+    Tuple1<bool>
 
 type [<AllowNullLiteral>] BucketExistsCallback =
     inherit ExistsCallback
@@ -181,7 +181,7 @@ type [<AllowNullLiteral>] GetLabelsOptions =
     abstract userProject: string option with get, set
 
 type GetLabelsResponse =
-    Request.Response
+    Tuple1<Request.Response>
 
 type [<AllowNullLiteral>] GetLabelsCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * labels: obj option -> unit
@@ -210,7 +210,7 @@ type [<AllowNullLiteral>] MakeBucketPrivateOptions =
     abstract userProject: string option with get, set
 
 type MakeBucketPrivateResponse =
-    ResizeArray<File>
+    Tuple1<ResizeArray<File>>
 
 type [<AllowNullLiteral>] MakeBucketPrivateCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?files: ResizeArray<File> -> unit
@@ -223,13 +223,13 @@ type [<AllowNullLiteral>] MakeBucketPublicCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?files: ResizeArray<File> -> unit
 
 type MakeBucketPublicResponse =
-    ResizeArray<File>
+    Tuple1<ResizeArray<File>>
 
 type [<AllowNullLiteral>] SetBucketMetadataOptions =
     abstract userProject: string option with get, set
 
 type SetBucketMetadataResponse =
-    Request.Response
+    Tuple1<Request.Response>
 
 type [<AllowNullLiteral>] SetBucketMetadataCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?metadata: Metadata -> unit
@@ -238,7 +238,7 @@ type [<AllowNullLiteral>] BucketLockCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?apiResponse: Request.Response -> unit
 
 type BucketLockResponse =
-    Request.Response
+    Tuple1<Request.Response>
 
 type [<AllowNullLiteral>] Labels =
     [<Emit "$0[$1]{{=$2}}">] abstract Item: key: string -> string with get, set
@@ -247,7 +247,7 @@ type [<AllowNullLiteral>] SetLabelsOptions =
     abstract userProject: string option with get, set
 
 type SetLabelsResponse =
-    Request.Response
+    Tuple1<Request.Response>
 
 type [<AllowNullLiteral>] SetLabelsCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?metadata: Metadata -> unit
@@ -282,7 +282,7 @@ type [<AllowNullLiteral>] MakeAllFilesPublicPrivateCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: U2<Error, ResizeArray<Error>> * ?files: ResizeArray<File> -> unit
 
 type MakeAllFilesPublicPrivateResponse =
-    ResizeArray<File>
+    Tuple1<ResizeArray<File>>
 
 /// Create a Bucket object to interact with a Cloud Storage bucket.
 type [<AllowNullLiteral>] Bucket =
@@ -350,7 +350,7 @@ type [<AllowNullLiteral>] Bucket =
     /// `projects/my-project/locations/location/keyRings/my-kr/cryptoKeys/my-key`.
     /// KMS key ring must use the same location as the bucket.</param>
     abstract file: name: string * ?options: FileOptions -> File
-    abstract getFiles: ?query: GetFilesOptions -> Promise<ResizeArray<File>>
+    abstract getFiles: ?query: GetFilesOptions -> Promise<Tuple1<ResizeArray<File>>>
     abstract getFiles: query: GetFilesOptions * callback: GetFilesCallback -> unit
     abstract getFiles: callback: GetFilesCallback -> unit
     abstract getLabels: options: GetLabelsOptions -> Promise<GetLabelsResponse>
@@ -427,7 +427,7 @@ module File =
 
 
 type GetExpirationDateResponse =
-    DateTime
+    Tuple1<DateTime>
 
 type [<AllowNullLiteral>] GetExpirationDateCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?expirationDate: DateTime * ?apiResponse: R.Response -> unit
@@ -445,7 +445,7 @@ type [<AllowNullLiteral>] GetSignedUrlConfig =
     abstract responseType: string option with get, set
 
 type GetSignedUrlResponse =
-    string array
+    Tuple1<string>
 
 type [<AllowNullLiteral>] GetSignedUrlCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?url: string -> unit
@@ -456,7 +456,7 @@ type [<AllowNullLiteral>] PolicyDocument =
     abstract string: string with get, set
 
 type GetSignedPolicyResponse =
-    PolicyDocument
+    Tuple1<PolicyDocument>
 
 type [<AllowNullLiteral>] GetSignedPolicyCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?policy: PolicyDocument -> unit
@@ -493,7 +493,7 @@ type [<AllowNullLiteral>] FileExistsOptions =
     abstract userProject: string option with get, set
 
 type FileExistsResponse =
-    bool
+    Tuple1<bool>
 
 type [<AllowNullLiteral>] FileExistsCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?exists: bool -> unit
@@ -502,7 +502,7 @@ type [<AllowNullLiteral>] DeleteFileOptions =
     abstract userProject: string option with get, set
 
 type DeleteFileResponse =
-    R.Response
+    Tuple1<R.Response>
 
 type [<AllowNullLiteral>] DeleteFileCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?apiResponse: R.Response -> unit
@@ -526,7 +526,7 @@ type [<AllowNullLiteral>] CreateResumableUploadOptions =
     abstract userProject: string option with get, set
 
 type CreateResumableUploadResponse =
-    string array
+    Tuple1<string>
 
 type [<AllowNullLiteral>] CreateResumableUploadCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?uri: string -> unit
@@ -543,19 +543,19 @@ type [<AllowNullLiteral>] MakeFilePrivateOptions =
     abstract userProject: string option with get, set
 
 type MakeFilePrivateResponse =
-    R.Response
+    Tuple1<R.Response>
 
 type [<AllowNullLiteral>] MakeFilePrivateCallback =
     inherit SetFileMetadataCallback
 
 type MakeFilePublicResponse =
-    R.Response
+    Tuple1<R.Response>
 
 type [<AllowNullLiteral>] MakeFilePublicCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?apiResponse: R.Response -> unit
 
 type MoveResponse =
-    R.Response
+    Tuple1<R.Response>
 
 type [<AllowNullLiteral>] MoveCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?destinationFile: File * ?apiResponse: R.Response -> unit
@@ -608,7 +608,7 @@ type [<AllowNullLiteral>] CopyCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?file: File * ?apiResponse: R.Response -> unit
 
 type DownloadResponse =
-    Buffer
+    Tuple1<Buffer>
 
 type [<AllowNullLiteral>] DownloadCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: RequestError option * contents: Buffer -> unit
@@ -636,10 +636,10 @@ type [<AllowNullLiteral>] SetFileMetadataCallback =
     [<Emit "$0($1...)">] abstract Invoke: ?err: Error * ?apiResponse: R.Response -> unit
 
 type SetFileMetadataResponse =
-    R.Response
+    Tuple1<R.Response>
 
 type SetStorageClassResponse =
-    R.Response
+    Tuple1<R.Response>
 
 type [<AllowNullLiteral>] SetStorageClassOptions =
     abstract userProject: string option with get, set
@@ -908,7 +908,7 @@ type [<AllowNullLiteral>] DeleteNotificationCallback =
 /// notifications.
 type [<AllowNullLiteral>] Notification =
     inherit ServiceObject
-    abstract delete: ?options: DeleteNotificationOptions -> Promise<Request.Response>
+    abstract delete: ?options: DeleteNotificationOptions -> Promise<Tuple1<Request.Response>>
     abstract delete: options: DeleteNotificationOptions * callback: DeleteNotificationCallback -> unit
     abstract delete: callback: DeleteNotificationCallback -> unit
     abstract get: ?options: GetNotificationOptions -> Promise<GetNotificationResponse>
@@ -995,7 +995,7 @@ type [<AllowNullLiteral>] BucketCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * ?bucket: Bucket * ?apiResponse: R.Response -> unit
 
 type GetBucketsResponse =
-    ResizeArray<Bucket>
+    Tuple1<ResizeArray<Bucket>>
 
 type [<AllowNullLiteral>] GetBucketsCallback =
     [<Emit "$0($1...)">] abstract Invoke: err: Error option * buckets: ResizeArray<Bucket> -> unit
@@ -1076,7 +1076,6 @@ type [<AllowNullLiteral>] StorageStatic =
 // channel.d.ts
 //
 
-type Response = Request.Response
 //type Storage = __storage.Storage
 
 [<RequireQualifiedAccess>]
@@ -1090,7 +1089,7 @@ type [<AllowNullLiteral>] StopCallback =
 /// Create a channel object to interact with a Cloud Storage channel.
 type [<AllowNullLiteral>] Channel =
     inherit ServiceObject
-    abstract stop: unit -> Promise<Response>
+    abstract stop: unit -> Promise<Request.Response>
     abstract stop: callback: StopCallback -> unit
 
 /// Create a channel object to interact with a Cloud Storage channel.

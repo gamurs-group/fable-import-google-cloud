@@ -19,6 +19,7 @@
         <Compile Include="ToughCookie\ToughCookie.fs" />
         <Compile Include="FormData\FormData.fs" />
         <Compile Include="Request\Request.fs" />
+        <Compile Include="GoogleCloud.Common\Hacks.fs" />
         <Compile Include="GoogleCloud.Common\CommonUtil.fs" />
         <Compile Include="GoogleCloud.Common\Service.fs" />
         <Compile Include="GoogleCloud.Common\ServiceObject.fs" />
